@@ -26,8 +26,9 @@ RawDataAccess            	|00:00:00.4961315	|00:00:02.9706760	|00:00:00.3808327
 Dapper                   	|00:00:00.4071070	|00:00:02.5303710	|00:00:00.4087079
 PetaPoco                 	|00:00:00.6143251	|00:00:02.8285628	|00:00:00.6723926
 NPoco                    	|00:00:01.6210925	|00:00:03.4482741	|00:00:00.7048360
-MicroLite                	|00:00:00.4212418	|00:00:02.7869338	|00:00:00.4328647
-Debonair                 	|00:00:00.5308836	|00:00:13.3562763	|00:00:00.4040702
+MicroLite*               	|00:00:00.4212418	|00:00:02.7869338	|00:00:00.4328647
+Debonair*                	|00:00:00.5308836	|00:00:13.3562763	|00:00:00.4040702
 ServiceStack.OrmLite     	|00:00:00.4229755	|00:00:02.4594527	|00:00:00.4004213
 
-
+### * False Starts
+Debonair and Microlite are included in the results, however, there doesn't seem to be a way to get the value of an output parameter using them, so really ... they fail the test.
