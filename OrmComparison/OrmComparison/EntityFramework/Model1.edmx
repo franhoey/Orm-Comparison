@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ORMTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="ExecuteNonQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutputData" Type="int" Mode="InOut" />
+          <Parameter Name="IntData" Type="int" Mode="In" />
+          <Parameter Name="GuidData" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="StringData" Type="nvarchar" Mode="In" />
+          <Parameter Name="BoolData" Type="bit" Mode="In" />
+          <Parameter Name="DateData" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetAllRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetSingleRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IntData" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ORMTestModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ORMTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ORMTestEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="ExecuteNonQuery">
+            <Parameter Name="OutputData" Mode="InOut" Type="Int32" />
+            <Parameter Name="IntData" Mode="In" Type="Int32" />
+            <Parameter Name="GuidData" Mode="In" Type="Guid" />
+            <Parameter Name="StringData" Mode="In" Type="String" />
+            <Parameter Name="BoolData" Mode="In" Type="Boolean" />
+            <Parameter Name="DateData" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllRecords" ReturnType="Collection(ORMTestModel.GetAllRecords_Result)" />
+          <FunctionImport Name="GetSingleRecord" ReturnType="Collection(ORMTestModel.GetSingleRecord_Result)">
+            <Parameter Name="IntData" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAllRecords_Result">
+          <Property Type="Int32" Name="IntData" Nullable="false" />
+          <Property Type="Guid" Name="GuidData" Nullable="false" />
+          <Property Type="String" Name="StringData" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="BoolData" Nullable="false" />
+          <Property Type="DateTime" Name="DateData" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetSingleRecord_Result">
+          <Property Type="Int32" Name="IntData" Nullable="false" />
+          <Property Type="Guid" Name="GuidData" Nullable="false" />
+          <Property Type="String" Name="StringData" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="BoolData" Nullable="false" />
+          <Property Type="DateTime" Name="DateData" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ORMTestModelStoreContainer" CdmEntityContainer="ORMTestEntities" >
+          <FunctionImportMapping FunctionImportName="ExecuteNonQuery" FunctionName="ORMTestModel.Store.ExecuteNonQuery" />
+          <FunctionImportMapping FunctionImportName="GetAllRecords" FunctionName="ORMTestModel.Store.GetAllRecords">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ORMTestModel.GetAllRecords_Result">
+                <ScalarProperty Name="IntData" ColumnName="IntData" />
+                <ScalarProperty Name="GuidData" ColumnName="GuidData" />
+                <ScalarProperty Name="StringData" ColumnName="StringData" />
+                <ScalarProperty Name="BoolData" ColumnName="BoolData" />
+                <ScalarProperty Name="DateData" ColumnName="DateData" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSingleRecord" FunctionName="ORMTestModel.Store.GetSingleRecord">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ORMTestModel.GetSingleRecord_Result">
+                <ScalarProperty Name="IntData" ColumnName="IntData" />
+                <ScalarProperty Name="GuidData" ColumnName="GuidData" />
+                <ScalarProperty Name="StringData" ColumnName="StringData" />
+                <ScalarProperty Name="BoolData" ColumnName="BoolData" />
+                <ScalarProperty Name="DateData" ColumnName="DateData" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
