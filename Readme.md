@@ -16,7 +16,9 @@ The tests all work with a single table of 300 records containing Int, String, Da
 Using each ORM each Stored Procedure is timed while being executed 5000 times. Before the timed run each Store Procedure is executed 500 times to allow the ORM and Database to warm up.
 
 ## The Results
-As important as speed is the look of the code, but beauty is in the eye of the beholder so you will have to look at the source yourself.
+As important as speed is the look of the code, but beauty is in the eye of the beholder so you will have to look at the source yourself. Also,take a look at the false starts section below.
+
+![Comparison Graph](./art/OrmComparison.png)
 
 Orm                      	|SelectOne       	|SelectAll       	|RunNonQuery
 ----------------------------|-------------------|-------------------|---------------
