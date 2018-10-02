@@ -179,7 +179,6 @@
     <Compile Include="Dapper\DapperDataAccess.cs" />
     <Compile Include="Debonair\DebonairDataAccess.cs" />
     <Compile Include="Dto.cs" />
-    <Compile Include="EntityFrameworkCore\Dtoes.cs" />
     <Compile Include="EntityFrameworkCore\EFCoreDataAccess.cs" />
     <Compile Include="EntityFramework\EFDataAccess.cs" />
     <Compile Include="EntityFramework\GetAllRecords_Result.cs">
@@ -211,7 +210,6 @@
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
     <Compile Include="MicroLite\MicroLiteDataAccess.cs" />
-    <Compile Include="EntityFrameworkCore\MigrationHistory.cs" />
     <Compile Include="NPoco\NPocoDataAccess.cs" />
     <Compile Include="OrmLite\OrmLiteDataAccess.cs" />
     <Compile Include="EntityFrameworkCore\OrmtestContext.cs" />
