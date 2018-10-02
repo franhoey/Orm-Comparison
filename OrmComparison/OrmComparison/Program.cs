@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OrmComparison.Dapper;
 using OrmComparison.Debonair;
 using OrmComparison.EntityFramework;
+using OrmComparison.EntityFrameworkCore;
 using OrmComparison.LinqToSql;
 using OrmComparison.MicroLite;
 using OrmComparison.NPoco;
@@ -24,6 +25,7 @@ namespace OrmComparison
             {
                 new LinqToSqlDataAccess(),
                 new EFDataAccess(),
+                new EFCoreDataAccess(),
                 new RawDataAccess(),
                 new DapperDataAccess(),
                 new PetaPocoDataAccess(),
