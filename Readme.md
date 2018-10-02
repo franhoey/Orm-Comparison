@@ -20,17 +20,21 @@ As important as speed is the look of the code, but beauty is in the eye of the b
 
 ![Comparison Graph](./art/OrmComparison.png)
 
-Orm                      	|SelectOne       	|SelectAll       	|RunNonQuery
-----------------------------|-------------------|-------------------|---------------
-LinqToSql                	|00:00:01.9562822	|00:00:03.6997025	|00:00:01.6399206
-EntityFramework          	|00:00:01.2706107	|00:00:03.4185752	|00:00:01.7025083
-RawDataAccess            	|00:00:00.4961315	|00:00:02.9706760	|00:00:00.3808327
-Dapper                   	|00:00:00.4071070	|00:00:02.5303710	|00:00:00.4087079
-PetaPoco                 	|00:00:00.6143251	|00:00:02.8285628	|00:00:00.6723926
-NPoco                    	|00:00:01.6210925	|00:00:03.4482741	|00:00:00.7048360
-MicroLite*               	|00:00:00.4212418	|00:00:02.7869338	|00:00:00.4328647
-Debonair*                	|00:00:00.5308836	|00:00:13.3562763	|00:00:00.4040702
-ServiceStack.OrmLite     	|00:00:00.4229755	|00:00:02.4594527	|00:00:00.4004213
+Orm                      	   |SelectOne       	   |SelectAll       	   |RunNonQuery
+-------------------------------|-----------------------|-----------------------|---------------
+RawDataAccess                  |00:00:01.9126101       |00:00:05.0644817       |00:00:01.3035870
+EntityFramework                |00:00:03.9955127       |00:00:08.8974535       |00:00:05.7639858
+EntityFrameworkCore            |00:00:03.0121316       |00:00:09.9225503       |00:00:01.7892548
+LinqToSql                      |00:00:03.6203172       |00:00:07.4801082       |00:00:02.8967806
+Dapper                         |00:00:01.5413370       |00:00:10.4132520       |00:00:01.3893271
+PetaPoco                       |00:00:03.5615154       |00:00:09.9040671       |00:00:02.1176574
+NPoco                          |00:00:04.4666562       |00:00:13.3185543       |00:00:01.4555433
+MicroLite                      |00:00:01.5164151       |00:00:04.9687992       |00:00:01.5089604
+Debonair                       |00:00:01.4791524       |00:00:29.5297591       |00:00:01.2743130
+ServiceStack.OrmLite           |00:00:01.5202964       |00:00:05.1525614       |00:00:01.1089368
 
-### * False Starts
-Debonair and Microlite are included in the results, however, there doesn't seem to be a way to get the value of an output parameter using them, so really ... they fail the test.
+### * Notes
+1. Debonair and Microlite are included in the results, however, there doesn't seem to be a way to get the value of an output parameter using them, so really ... they fail the test.
+2. I've removed Debonair from the Graph as the SelectAll result of 29.5 seconds skews the graph
+
+

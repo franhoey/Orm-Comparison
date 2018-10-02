@@ -23,10 +23,10 @@ namespace OrmComparison
 
             var testObjects = new List<IDataAccess>()
             {
-                new LinqToSqlDataAccess(),
+                new RawDataAccess(),
                 new EFDataAccess(),
                 new EFCoreDataAccess(),
-                new RawDataAccess(),
+                new LinqToSqlDataAccess(),
                 new DapperDataAccess(),
                 new PetaPocoDataAccess(),
                 new NPocoDataAccess(),
